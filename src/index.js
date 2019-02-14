@@ -29,7 +29,7 @@ const actions = {
   updateLocation,
 };
 
-db.child('locations').on('value', snapshot => {
+db.on('value', snapshot => {
   const store = snapshot.val();
   ReactDOM.render(
     <App
