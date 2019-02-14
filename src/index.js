@@ -2,36 +2,35 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-
 import * as firebase from 'firebase';
 
 const config = {  
-    apiKey: "AIzaSyBpcTOzviEtw471XrRLfJPINhiiZ1jXgm4",
-    authDomain: "elminda-oren-1903413.firebaseapp.com",
-    databaseURL: "https://elminda-oren-1903413.firebaseio.com",
-    projectId: "elminda-oren-1903413",
-    storageBucket: "elminda-oren-1903413.appspot.com",
-    messagingSenderId: "272079437557"
+    apiKey: "AIzaSyCQFJ7avdBmx-o7kcnl-Xev7XvBpCeWE3E",
+    authDomain: "elm-web-eng.firebaseapp.com",
+    databaseURL: "https://elm-web-eng.firebaseio.com",
+    projectId: "elm-web-eng",
+    storageBucket: "elm-web-eng.appspot.com",
+    messagingSenderId: "323861359653"
 };
 
-const fb = firebase  
+const db = firebase  
   .initializeApp(config)
   .database()
-  .ref();
+  .ref()
+
+// console.log(db)
 
 // Added some "action" functions
 // These will update our firebase database
-const addLocation = data => { console.log(data); fb.child('locations').push(data, response => response); }
-const updateLocation = (id, data) => { console.log(data); fb.child(`locations/${id}`).update(data, response => response); }
+const addLocation = data => { db.child('locations').push(data, response => response); }
+const updateLocation = (id, data) => { db.child(`locations/${id}`).update(data, response => response); }
 const actions = {  
   addLocation,
   updateLocation,
 };
 
-fb.on('value', snapshot => {  
+db.child('locations').on('value', snapshot => {
   const store = snapshot.val();
-  console.log(store);
   ReactDOM.render(
     <App
         {...actions}
@@ -41,4 +40,4 @@ fb.on('value', snapshot => {
   );
 });
 
-registerServiceWorker();
+export default actions;
