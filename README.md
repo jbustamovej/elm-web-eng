@@ -7,6 +7,6 @@ Write code in React so that the unit tests pass, specifically the test "Form sho
 
 Create a pull request with your work and assign it to jmjpro@gmail.com.
 
-You will have a hour to complete the test.
+You will have two hours to complete the test.
 
 Contact Yehoshua Jacobson at x165 in Room 31C with any questions.
