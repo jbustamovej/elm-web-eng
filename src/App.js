@@ -8,7 +8,6 @@ class App extends Component {
 
 
   render() {
-    console.log(this.props.locations);
     return (
       <div className="App">
         <div className="App-header">
